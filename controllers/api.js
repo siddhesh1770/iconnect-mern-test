@@ -1,7 +1,24 @@
 const Company = require("../models/Company");
 
 exports.getCompanies = async (req, res) => {
-  // get all companies
+  try {
+    const companies = await Company.find({});
+    if(companies.length === 0) {
+      res.status(400).json({ success: false, message: "No companies found" });
+      return;
+    }
+    res.status(200).json({
+      success: true,
+      message: "Companies fetched successfully",
+      data: companies,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({
+      success: false,
+      message: error.message,
+    });
+  }
 };
 
 exports.update = async (req, res) => {
@@ -17,8 +34,8 @@ exports.update = async (req, res) => {
     company.description = data.description;
     company.phone = data.phone;
     company.email = data.email;
-    company.address.state = data.state;
-    company.address.city = data.city;
+    company.state = data.state;
+    company.city = data.city;
     await company.save();
     res.status(200).json({
         success: true,
@@ -41,10 +58,8 @@ exports.create = async (req, res) => {
       description: req.body.description,
       phone: req.body.phone,
       email: req.body.email,
-      address: {
-        state: req.body.state,
-        city: req.body.city,
-      },
+      state: req.body.state,
+      city: req.body.city,
     };
     const temp = await Company.findOne({ email: data.email });
     if (temp) {

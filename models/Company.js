@@ -19,14 +19,12 @@ const CompanySchema = new mongoose.Schema({
         unique: true,
         match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please fill a valid email address'],
     },
-    address: {
-        state: {
-            type: String,
-        },
-        city: {
-            type: String,
-        }
-    }
+    state: {
+        type: String,
+    },
+    city: {
+        type: String,
+    },
 });
 
 const Company = mongoose.model('Company', CompanySchema);
