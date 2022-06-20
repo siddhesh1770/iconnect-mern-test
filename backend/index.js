@@ -6,6 +6,8 @@ dotenv.config(  // config var support for development
         path: './config/config.env'
     }
 );
+const connectDB = require('./config/db');
+connectDB();
 const express = require('express');
 const app = express();
 
@@ -18,6 +20,7 @@ app.use(cors({origin: true}));
 
 // import and use api routes
 app.use('/api', require('./routes/api'));
+
 
 const port = process.env.PORT || 1770;
 // start server
