@@ -1,0 +1,24 @@
+{
+  "name": "iconnect-mern-test",
+  "version": "1.0.0",
+  "description": "This is Test Task Repo, created only as part of selection process at iConnect Info Solutions",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/siddhesh1770/iconnect-mern-test.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/siddhesh1770/iconnect-mern-test/issues"
+  },
+  "homepage": "https://github.com/siddhesh1770/iconnect-mern-test#readme",
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "mongoose": "^6.4.0"
+  }
+}
