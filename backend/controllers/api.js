@@ -1,11 +1,17 @@
+const path = require('path');
+const Company = require('../models/Company');
 
+exports.getCompanies = async (req, res) => {    // get all companies
 
-exports.create = async (req, res, ) => {
+}
+
+exports.update = async (req, res) => {  // update company details
+
+}
+
+exports.create = async (req, res) => {  // create new company
     try {
-        res.status(201).json({
-            success: true,
-            message: 'Created',
-        });
+        
     } catch (error) {
         res.status(500).json({
             success: false,

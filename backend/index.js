@@ -1,5 +1,6 @@
 const dotenv = require('dotenv');
 const cors = require('cors');
+const bodyParser = require('body-parser');
 dotenv.config(  // config var support for development
     {
         path: './config/config.env'
@@ -9,8 +10,10 @@ const express = require('express');
 const app = express();
 
 
+
 // json support
-app.use(express.json());
+app.use(bodyParser.json());
+// using cors for cross origin
 app.use(cors({origin: true}));
 
 // import and use api routes
