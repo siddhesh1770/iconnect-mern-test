@@ -4,8 +4,8 @@
   "description": "This is Test Task Repo, created only as part of selection process at iConnect Info Solutions",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon index.js",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
