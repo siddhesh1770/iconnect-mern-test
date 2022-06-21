@@ -46,3 +46,14 @@ export const updateCompany = async (company) => {
     });
     return await data.json();
 }
+
+export const deleteCompany = async (id) => {
+    const data = await fetch(`${url}delete`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ id }),
+    });
+    return await data.json();
+}

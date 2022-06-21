@@ -1,66 +1,66 @@
 import React from "react";
 import Table from "react-bootstrap/Table";
-import Button from 'react-bootstrap/Button';
 import { getAllCompanies } from "../service/api";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import TBody from "./TBody";
+import Button from "react-bootstrap/Button";
+
 
 const AllCompanies = () => {
   const [data, setData] = useState([]);
+  const [order, setOrder] = useState("asc");
   useEffect( () => {
     getAllData();
   }, []);
   const getAllData = async () => {
     let res = await getAllCompanies();
-    setData(res.data);
+    sortData(res.data);
+  }
+  const sortData = (data) => {
+    if (order === "asc") {
+      setData(data.sort((a, b) => a.name.localeCompare(b.name)));
+      setOrder("desc");
+    } else {
+      setData(data.sort((a, b) => b.name.localeCompare(a.name)));
+      setOrder("asc");
+    }
+  }
+  const handleSortingChange = () => {
+    const currOrder = order;
+    if(currOrder === "asc"){
+      setOrder("desc");
+    }else{
+      setOrder("asc");
+    }
+    sortData(data);
   }
   return (
     <>
     <br />
         <h2 style={{margin:"auto", width:"50%"}}>All Companies</h2>
+        <br></br>
+        <h5>Click sort to sort ascending and descending vice versa with respect to name</h5>
+        {
+          // use the sort field and order to sort the data
+        }
+        <Button onClick={handleSortingChange}>Sort</Button>
       <div className="main-table">
 
         <Table striped bordered hover>
           <thead>
             <tr>
               <th>#</th>
-              <th>Company Name</th>
-              <th>Phone</th>
-              <th>Email</th>
-              <th>State</th>
-              <th>City</th>
-              <th>Description</th>
-              <th>Actions</th>
+              <th onClick={handleSortingChange}>Company Name</th>
+              <th onClick={handleSortingChange}>Phone</th>
+              <th onClick={handleSortingChange}>Email</th>
+              <th onClick={handleSortingChange}>State</th>
+              <th onClick={handleSortingChange}>City</th>
+              <th onClick={handleSortingChange}>Description</th>
+              <th onClick={handleSortingChange}>Actions</th>
             </tr>
           </thead>
           <tbody id="tbody-main">
-            {/* <tr>
-              <td>1</td>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-            </tr> */}
-            {
-                data.map((elem, index) => {
-                    return (
-                        <tr key={index}>
-                        <td>{index + 1}</td>
-                        <td>{elem.name}</td>
-                        <td>{elem.phone}</td>
-                        <td>{elem.email}</td>
-                        <td>{elem.state}</td>
-                        <td>{elem.city}</td>
-                        <td style={{maxWidth: "450px",wordWrap:"break-word"}}>{elem.description}</td>
-                        <td>
-                            <Button className="btn btn-primary" onClick={() => {
-                                window.location.href = `/edit/${elem._id}`;
-                            }}>Edit</Button>
-                            <Button className="btn btn-danger">Delete</Button>
-                        </td>
-                        </tr>
-                    )
-                })
-            }
+            <TBody data={data} />
           </tbody>
         </Table>
       </div>
