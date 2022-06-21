@@ -9,7 +9,6 @@ a {
 .main-table {
     width: 95% !important;
     margin: auto !important;
-    margin-top: 100px !important;
 }
 .main-table button {
     margin: 5px;
@@ -39,4 +38,9 @@ table {
 
 .dataTables_paginate {
     color: black !important;
+}
+
+.info {
+    margin: auto;
+    width: 50%;
 }

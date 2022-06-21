@@ -1,9 +1,36 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { DataGrid} from '@mui/x-data-grid';
-import testData from './testData.json';
-import { useNavigate } from 'react-router-dom';
+import {getAllCompanies, updateCompany} from '../service/api'
+import Info from './Info';
+
 
 const TempTable = () => {
+    const [data, setData] = useState([]);
+    useEffect(() => {
+        setDataUtil();
+    }, []);
+    const setDataUtil = async () => {
+        const res = await getAllCompanies();
+        setData(res.data);
+    }
+    const updateStateFromUi = async (dataTemp, id) => {
+        let postData = {
+            name: dataTemp.name,
+            description: dataTemp.description,
+            phone: dataTemp.phone,
+            email: dataTemp.email,
+            state: dataTemp.state,
+            city: dataTemp.city,
+            serial: dataTemp.mongoId,
+            _id: id
+        }
+        const res = await updateCompany(postData);
+        console.log(res);
+        // reload window now 
+        window.location.reload();
+
+    }
+
     const updateInfo = async (data) => {
         console.log(data)
     }
@@ -61,8 +88,6 @@ const TempTable = () => {
 
         }
     ]
-    // convert all serial to id from testData.data
-    let data = testData.data;
     data.forEach(element => {
         element.mongoId = element.id;
         element.id = element.serial;
@@ -71,6 +96,8 @@ const TempTable = () => {
         console.log('hello');
     }
   return (
+    <>
+    <Info />
     <div style={{height: 400, width: '100%'}} className="main-table">
         <DataGrid 
             rows={data}
@@ -78,16 +105,21 @@ const TempTable = () => {
             pageSize={5}
             rowsPerPageOptions={[5]}
             onCellEditCommit={(e) => {
-                console.log('onCellEditCommit');
                 //search for id in data
-                data.forEach(element => {
+                let hell;
+                let temp = data;
+                temp.forEach(element => {
                     if(element.id === e.id){
-                        console.log(element);
+                        hell=element;
+                        temp = element;
+                        temp[e.field] = e.value;
                     }
                 })
+                updateStateFromUi(temp, hell._id)
             }}
         />
     </div>
+    </>
   )
 }
 
