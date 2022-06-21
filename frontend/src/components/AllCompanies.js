@@ -1,9 +1,9 @@
 import React from "react";
-import {Table} from "react-bootstrap";
+import Table from "react-bootstrap/Table";
 import { getAllCompanies } from "../service/api";
 import { useEffect, useState } from "react";
 import TBody from "./TBody";
-import {Button} from "react-bootstrap";
+import Button from "react-bootstrap/Button";
 
 
 const AllCompanies = () => {
