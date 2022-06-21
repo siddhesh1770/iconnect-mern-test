@@ -27,8 +27,14 @@ const TempTable = () => {
         const res = await updateCompany(postData);
         console.log(res);
         // reload window now 
-        window.location.reload();
-
+        const temp = [...data];
+        for(let i = 0; i < temp.length; i++){
+            if(temp[i]._id === id){
+                temp[i] = postData;
+                break;
+            }
+        }
+        setData(temp);
     }
 
     const updateInfo = async (data) => {
