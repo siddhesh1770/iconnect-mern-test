@@ -2,8 +2,10 @@ import React from "react";
 import { Button, Form, InputGroup, FormControl } from "react-bootstrap";
 import { addCompany, getStates } from "../service/api";
 import { useEffect, useState } from "react";
+import {useNavigate} from 'react-router-dom';
 
 const AddCompany = () => {
+  const navigate = useNavigate();
   const [statesAndCities, setStatesAndCities] = useState([]);
   useEffect(() => {
     getAllStates();
@@ -28,10 +30,10 @@ const AddCompany = () => {
   const createCompany = async (e) => {
     const res = await addCompany(company);
     if(res.success === true) {
-        window.alert(res.message);
-        window.location.href = "/";
+      navigate('/');
+    } else {
+      window.alert(res.message);
     }
-    window.alert(res.message);
   };
   const changeCity= (e) => {
     changeState(e);

@@ -24,3 +24,25 @@ export const getAllCompanies = async () => {
     const data = await fetch(`${url}/getCompanies`);
     return await data.json();
 }
+
+export const getCompanyById = async (id) => {
+    const data = await fetch(`${url}/getCompanyById`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ id }),
+    });
+    return await data.json();
+}
+
+export const updateCompany = async (company) => {
+    const data = await fetch(`${url}/update`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(company),
+    });
+    return await data.json();
+}

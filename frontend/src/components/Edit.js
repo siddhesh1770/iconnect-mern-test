@@ -1,16 +1,21 @@
 import React from "react";
 import { Button, Form, InputGroup, FormControl } from "react-bootstrap";
-import { addCompany, getStates } from "../service/api";
+import { updateCompany, getStates, getCompanyById } from "../service/api";
 import { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 
 const AddCompany = () => {
+  const navigate = useNavigate();
+  const { id} = useParams();
   const [statesAndCities, setStatesAndCities] = useState([]);
   useEffect(() => {
     getAllStates();
   }, []);
   const getAllStates = async () => {
+    const data2 = await getCompanyById(id);
     const data = await getStates();
     setStatesAndCities(data);
+    setCompany(data2.data);
   };
 
   const def = {
@@ -25,13 +30,13 @@ const AddCompany = () => {
   const changeState = (e) => {
     setCompany({ ...company, [e.target.name]: e.target.value });
   };
-  const createCompany = async (e) => {
-    const res = await addCompany(company);
+  const updateCompanyNow = async (e) => {
+    const res = await updateCompany(company);
     if(res.success === true) {
-        window.alert(res.message);
-        window.location.href = "/";
+        navigate('/');
+    } else {
+      window.alert(res.message);
     }
-    window.alert(res.message);
   };
   const changeCity= (e) => {
     changeState(e);
@@ -46,7 +51,7 @@ const AddCompany = () => {
     })
   }
   return (
-    <>
+    <div>
       <h1>Edit Company Details</h1>
       <div className="main-form">
         <Form>
@@ -57,6 +62,7 @@ const AddCompany = () => {
               type="text"
               onChange={changeState}
               placeholder="Enter company name"
+              value={company.name}
             />
           </Form.Group>
 
@@ -67,6 +73,7 @@ const AddCompany = () => {
               onChange={changeState}
               type="email"
               placeholder="Enter company email"
+              value={company.email}
             />
           </Form.Group>
 
@@ -77,6 +84,7 @@ const AddCompany = () => {
               onChange={changeState}
               type="text"
               placeholder="Enter company phone"
+              value={company.phone}
             />
             <Form.Text className="text-muted">
               Please add phone with country code
@@ -90,6 +98,7 @@ const AddCompany = () => {
               onChange={changeCity}
               id="state"
               aria-label="Default select example"
+              value={company.state}
             >
               <option>Select State</option>
               {Object.keys(statesAndCities).map((state) => {
@@ -106,6 +115,7 @@ const AddCompany = () => {
               name="city"
               aria-label="Default select example"
               onChange={changeState}
+              value={company.city}
             ></Form.Select>
           </Form.Group>
 
@@ -116,15 +126,16 @@ const AddCompany = () => {
               onChange={changeState}
               aria-label="With textarea"
               name="description"
+              value={company.description}
             />
           </InputGroup>
           <br />
-          <Button def onClick={createCompany} variant="primary">
+          <Button def onClick={updateCompanyNow} variant="primary">
             Submit
           </Button>
         </Form>
       </div>
-    </>
+    </div>
   );
 };
 
