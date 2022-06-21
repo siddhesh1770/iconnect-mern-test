@@ -1,0 +1,22 @@
+a {
+    text-decoration: none !important;
+    color: rgb(255, 247, 247) !important;
+}
+
+.main-table {
+    width: 80%;
+    margin: auto;
+    margin-top: 100px;
+}
+
+.main-form {
+    width: 80%;
+    margin: auto;
+    margin-top: 100px;
+    border: 3px solid rgb(115, 117, 240);
+    padding: 10px;
+    border-radius: 10px;
+}
+.main-form button {
+    margin: 0 50%;
+}

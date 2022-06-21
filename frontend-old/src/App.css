@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+* {
+    font-family: 'Roboto', sans-serif;
+    margin: 0px;
+    padding: 0px;
+}
+
+.appBar {
+    background-color: #111111 !important;
+}
+
+.logo {
+    background-color: red !important;
+    padding: 20px;
+    border-radius: 10px;
+    user-select: none;
+}
+.tabs {
+    margin-right: 60px;
+    background-color: rgb(128, 92, 45);
+    margin-left: 50px;
+    padding: 10px;
+    border-radius: 15px;
+    text-decoration: none;
+    color: antiquewhite;
+}
+/* on hover  of tabs*/
+.tabs:hover {
+    cursor: pointer;
+    background-color: rgb(51, 45, 128);
+}
