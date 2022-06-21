@@ -3,7 +3,7 @@ const Company = require("../models/Company");
 exports.getCompanies = async (req, res) => {
   try {
     const companies = await Company.find({});
-    if(companies.length === 0) {
+    if (companies.length === 0) {
       res.status(400).json({ success: false, message: "No companies found" });
       return;
     }
@@ -38,8 +38,8 @@ exports.update = async (req, res) => {
     company.city = data.city;
     await company.save();
     res.status(200).json({
-        success: true,
-        message: "Company updated successfully",
+      success: true,
+      message: "Company updated successfully",
     });
   } catch (error) {
     console.log(error);
@@ -100,4 +100,27 @@ exports.getCompanyById = async (req, res) => {
       message: error.message,
     });
   }
-}
+};
+
+exports.deleteCompany = async (req, res) => {
+  // delete company
+  try {
+    const company = await Company.findById(req.body.id);
+    if (!company) {
+      res.status(400).json({ success: false, message: "Company not found" });
+      return;
+    } else {
+      await company.remove();
+      res.status(200).json({
+        success: true,
+        message: "Company deleted successfully",
+      });
+    }
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
