@@ -30,7 +30,7 @@ const AddCompany = () => {
   const createCompany = async (e) => {
     const res = await addCompany(company);
     if(res.success === true) {
-      navigate()
+      navigate('/')
     } else {
       window.alert(res.message);
     }
