@@ -19,3 +19,8 @@ export const getStates = async () => {
     const data = await fetch("https://raw.githubusercontent.com/bhanuc/indian-list/master/state-city.json");
     return await data.json();
 }
+
+export const getAllCompanies = async () => {
+    const data = await fetch(`${url}/getCompanies`);
+    return await data.json();
+}

@@ -25,8 +25,13 @@ const AddCompany = () => {
   const changeState = (e) => {
     setCompany({ ...company, [e.target.name]: e.target.value });
   };
-  const createCompany = (e) => {
-    addCompany(company);
+  const createCompany = async (e) => {
+    const res = await addCompany(company);
+    if(res.success === true) {
+        window.alert(res.message);
+        window.location.href = "/";
+    }
+    window.alert(res.message);
   };
   const changeCity= (e) => {
     changeState(e);
