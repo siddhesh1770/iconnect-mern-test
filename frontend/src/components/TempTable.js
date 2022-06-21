@@ -64,12 +64,21 @@ const TempTable = () => {
     console.log(data)
   return (
     <>
+    <div>
+        <br></br>
+        <h1>
+            All Companies Listed
+        </h1>
+    </div>
+    <div className="main-table">
     <MDBDataTable
       striped
       bordered
       small
+      dark
       data={data}
     />
+    </div>
     </>
   )
 }
