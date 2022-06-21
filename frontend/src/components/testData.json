@@ -1,0 +1,138 @@
+{
+    "success": true,
+    "message": "Companies fetched successfully",
+    "data": [
+    {
+    "_id": "62b1c6fb426b115633d26836",
+    "name": "Siddhesh Patil",
+    "description": "My own company brother",
+    "phone": "+91 72088 41770",
+    "email": "hello@siddheshpatil.in",
+    "state": "Maharashtra",
+    "city": "Panvel",
+    "__v": 0,
+    "serial": 1
+    },
+    {
+    "_id": "62b1c7b1ad8354dffd5446c2",
+    "name": "iConnect Info Solutions Pvt. Ltd.",
+    "description": "iconnect",
+    "phone": "022 2222 2222",
+    "email": "info@iconnectsolutions.com",
+    "state": "Maharashtra",
+    "city": "Navi Mumbai",
+    "__v": 0,
+    "serial": 2
+    },
+    {
+    "_id": "62b1d721e0af9271d75d99a0",
+    "name": "Google India",
+    "description": "We are google from telangana founded by siddhesh 😅",
+    "phone": "+1 2654547 65",
+    "email": "info@googl.com",
+    "state": "Telangana",
+    "city": "Manuguru",
+    "__v": 0,
+    "serial": 3
+    },
+    {
+    "_id": "62b1d769e0af9271d75d99a5",
+    "name": "Meta Platforms, Inc.",
+    "description": "Meta Platforms, Inc., doing business as Meta and formerly known as Facebook, Inc., and TheFacebook, Inc., is an American multinational technology conglomerate based in Menlo Park, California. The company owns Facebook, Instagram, and WhatsApp, among other products and services",
+    "phone": "+91 58894 897 321",
+    "email": "siddhesh@meta.com",
+    "state": "Delhi",
+    "city": "New Delhi*",
+    "__v": 0,
+    "serial": 4
+    },
+    {
+    "_id": "62b1d799e0af9271d75d99aa",
+    "name": "Yila Pat Pvt. Ltd",
+    "description": "YILA is the name for a changing collaborative project lead by Sound Artist Alastair McNeill. His work takes many musical forms; performing with David Toop's Unknown devices group, Producing…",
+    "phone": "897 897 54652",
+    "email": "fadsf@yila.com",
+    "state": "Jammu and Kashmir",
+    "city": "Kathua",
+    "__v": 0,
+    "serial": 5
+    },
+    {
+    "_id": "62b1d7cee0af9271d75d99af",
+    "name": "Intelizign",
+    "description": "Intelizign provides IoT/Big Data strategy, Products and Solutions, including Architecture and Services. We help Businesses with strategic decisions by capturing, supporting, managing, and seamlessly accessing variety of data across multiple platforms. Our niche services have helped customers realize the business value that these new emerging technologies are bringing to their business transformation needs.",
+    "phone": "+91 22 8787 5647",
+    "email": "info@intelizign.com",
+    "state": "Maharashtra",
+    "city": "Pune",
+    "__v": 0,
+    "serial": 6
+    },
+    {
+    "_id": "62b1d830e0af9271d75d99b6",
+    "name": "Kore.AI",
+    "description": "Kore.ai, achieve this with unsurpassed innovation in Natural Language Understanding (NLU) to deliver the next generation virtual",
+    "phone": "+91 8797 564987",
+    "email": "acr@kore.ai",
+    "state": "Karnatka",
+    "city": "",
+    "__v": 0,
+    "serial": 7
+    },
+    {
+    "_id": "62b1d863e0af9271d75d99bb",
+    "name": "Amazon Inc",
+    "description": "Amazon is online shopping website\n",
+    "phone": "+91 8854 657 64",
+    "email": "hello@amazon.com",
+    "state": "Bihar",
+    "city": "",
+    "__v": 0,
+    "serial": 8
+    },
+    {
+    "_id": "62b1d899e0af9271d75d99c0",
+    "name": "Instagram",
+    "description": "Instagram is social media website for sharing photos and stories",
+    "phone": "2198372893",
+    "email": "help@instagram.com",
+    "state": "Chhattisgarh",
+    "city": "",
+    "__v": 0,
+    "serial": 9
+    },
+    {
+    "_id": "62b1d8cde0af9271d75d99c5",
+    "name": "LinkedIN",
+    "description": "LinkedIN is where professional connects with each other\n",
+    "phone": "32873 2093829",
+    "email": "pail@linkedin.com",
+    "state": "Assam",
+    "city": "Guwahati",
+    "__v": 0,
+    "serial": 10
+    },
+    {
+    "_id": "62b1d91de0af9271d75d99ca",
+    "name": "Netflix Inc",
+    "description": "NetFlix is hosted for TV Shows  and  Movies",
+    "phone": "23908 182098",
+    "email": "ceo@netflix.com",
+    "state": "Maharashtra",
+    "city": "Kalyan-Dombivali",
+    "__v": 0,
+    "serial": 11
+    },
+    {
+    "_id": "62b1e7cf41de7b32da1932c4",
+    "serial": 12,
+    "name": "Persistant",
+    "description": "Persistant service based IT Company",
+    "phone": "+798dsff640",
+    "email": "sasfsdf@gmail.com",
+    "state": "maharashtra",
+    "city": "panvel",
+    "__v": 0
+    }
+    ]
+    }
