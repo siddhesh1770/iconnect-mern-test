@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AddCompany from "./components/AddCompany";
 import NavBar from "./components/NavBar";
 import AllCompanies from "./components/AllCompanies";
+import Edit from "./components/Edit";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Routes>
         <Route path="/" element={<AllCompanies />} />
         <Route path="/addCompany" element={<AddCompany />} />
+        <Route path="/edit/:id" element={<Edit />} />
       </Routes>
     </BrowserRouter>
   );
