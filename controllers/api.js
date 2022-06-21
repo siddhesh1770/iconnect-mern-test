@@ -79,3 +79,25 @@ exports.create = async (req, res) => {
     });
   }
 };
+
+exports.getCompanyById = async (req, res) => {
+  // get company details by id
+  try {
+    const company = await Company.findById(req.body.id);
+    if (!company) {
+      res.status(400).json({ success: false, message: "Company not found" });
+      return;
+    }
+    res.status(200).json({
+      success: true,
+      message: "Company fetched successfully",
+      data: company,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({
+      success: false,
+      message: error.message,
+    });
+  }
+}

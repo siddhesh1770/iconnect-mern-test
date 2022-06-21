@@ -1,26 +1,12 @@
 import React from "react";
 import { Button, Form, InputGroup, FormControl } from "react-bootstrap";
-import { addCompany, getStates, getAllCompanies } from "../service/api";
+import { addCompany, getStates } from "../service/api";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
 
-const Edit = () => {
-  const {id} = useParams();
-    const setPrevData = async () => {
-        const data = await getAllCompanies();
-        data["data"].forEach(element => {
-          if(element.id == id){
-            setCurrCompany(element);
-          }
-        });
-        setCompany(currCompany);
-        console.log(currCompany)
-    }
+const AddCompany = () => {
   const [statesAndCities, setStatesAndCities] = useState([]);
-  const [currCompany, setCurrCompany] = useState([]);
   useEffect(() => {
     getAllStates();
-    setPrevData();
   }, []);
   const getAllStates = async () => {
     const data = await getStates();
@@ -61,7 +47,7 @@ const Edit = () => {
   }
   return (
     <>
-        <h1>Edit Company Details</h1>
+      <h1>Edit Company Details</h1>
       <div className="main-form">
         <Form>
           <Form.Group className="mb-3">
@@ -70,8 +56,6 @@ const Edit = () => {
               name="name"
               type="text"
               onChange={changeState}
-              id="name"
-              value={company.name}
               placeholder="Enter company name"
             />
           </Form.Group>
@@ -82,7 +66,6 @@ const Edit = () => {
               name="email"
               onChange={changeState}
               type="email"
-              id="email"
               placeholder="Enter company email"
             />
           </Form.Group>
@@ -93,7 +76,6 @@ const Edit = () => {
               name="phone"
               onChange={changeState}
               type="text"
-              id="phone"
               placeholder="Enter company phone"
             />
             <Form.Text className="text-muted">
@@ -134,7 +116,6 @@ const Edit = () => {
               onChange={changeState}
               aria-label="With textarea"
               name="description"
-              id="description"
             />
           </InputGroup>
           <br />
@@ -147,4 +128,4 @@ const Edit = () => {
   );
 };
 
-export default Edit;
+export default AddCompany;
