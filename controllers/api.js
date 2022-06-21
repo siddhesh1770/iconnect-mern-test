@@ -101,26 +101,3 @@ exports.getCompanyById = async (req, res) => {
     });
   }
 };
-
-exports.deleteCompany = async (req, res) => {
-  // delete company
-  try {
-    const company = await Company.findById(req.body.id);
-    if (!company) {
-      res.status(400).json({ success: false, message: "Company not found" });
-      return;
-    } else {
-      await company.remove();
-      res.status(200).json({
-        success: true,
-        message: "Company deleted successfully",
-      });
-    }
-  } catch (error) {
-    console.log(error);
-    res.status(500).json({
-      success: false,
-      message: error.message,
-    });
-  }
-};
