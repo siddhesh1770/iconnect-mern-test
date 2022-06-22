@@ -63,11 +63,6 @@ exports.create = async (req, res) => {
       state: req.body.state,
       city: req.body.city,
     };
-    const count = await Company.findById("62b2b6c4af033d2a550b68e3");
-    let i = count.count + 1;
-    count.count = i;
-    count.save();
-    data.serial = i;
     const temp = await Company.findOne({ email: data.email });
     
     if (temp) {
