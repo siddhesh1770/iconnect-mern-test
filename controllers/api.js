@@ -66,6 +66,8 @@ exports.create = async (req, res) => {
     const temp1 = await Company.findOne({});
     let i = temp1.length + 1;
     data.serial = i;
+    console.log(i);
+    console.log(temp1.length)
     const temp = await Company.findOne({ email: data.email });
     
     if (temp) {
