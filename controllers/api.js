@@ -1,4 +1,3 @@
-
 const Company = require("../models/Company");
 
 exports.getCompanies = async (req, res) => {
@@ -29,7 +28,9 @@ exports.update = async (req, res) => {
     // find company by id
     const company = await Company.findById(data._id);
     if (!company) {
-      res.status(400).json({ success: false, message: "Company  not found new" });
+      res
+        .status(400)
+        .json({ success: false, message: "Company  not found new" });
       return;
     }
     company.name = data.name;
@@ -63,8 +64,16 @@ exports.create = async (req, res) => {
       state: req.body.state,
       city: req.body.city,
     };
+    const t = {
+      id: "62b2af2476d3afcac25a1b4e",
+    };
+    const temp1 = await Company.findById(t.id);
+    const i = temp1.count + 1;
+    temp1.count = i;
+    await temp1.save();
+    data.serial = i;
     const temp = await Company.findOne({ email: data.email });
-    
+
     if (temp) {
       res.status(400).json({ success: false, message: "Email already exists" });
       return;

@@ -25,6 +25,12 @@ const CompanySchema = new mongoose.Schema({
     city: {
         type: String,
     },
+    serial: {
+        type: Number,
+    },
+    count: {
+        type: Number,
+    }
 });
 
 const Company = mongoose.model('Company', CompanySchema);
