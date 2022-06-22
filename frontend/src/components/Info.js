@@ -10,6 +10,8 @@ const Info = () => {
             <li>Try various actions on table like filter, sort, pagination</li>
             <li>Use Filters option to search throughout the data</li>
             <li>Check out source of project <a href='https://github.com/siddhesh1770/iconnect-mern-test'>here</a></li>
+            <li>Give 5 to 10 seconds to load data in table due to server goes sleep every 30 minutes of inactivity</li>
+            <li>Data for companies pulled from random generator</li>
         </ul>
         <br></br>
     </div>
