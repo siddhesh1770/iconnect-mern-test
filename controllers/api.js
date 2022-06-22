@@ -63,7 +63,11 @@ exports.create = async (req, res) => {
       state: req.body.state,
       city: req.body.city,
     };
+    const temp1 = await Company.findOne({});
+    let i = temp1.length + 1;
+    data.serial = i;
     const temp = await Company.findOne({ email: data.email });
+    
     if (temp) {
       res.status(400).json({ success: false, message: "Email already exists" });
       return;
