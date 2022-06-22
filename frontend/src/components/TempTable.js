@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { DataGrid, GridSearchIcon, GridToolbar } from "@mui/x-data-grid";
+import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import { getAllCompanies, updateCompany } from "../service/api";
 import Info from "./Info";
+import { Button } from "@mui/material";
+import { useNavigate } from "react-router-dom";
+import { grey } from "@mui/material/colors";
 
 const TempTable = () => {
   const [data, setData] = useState([]);
@@ -12,6 +15,7 @@ const TempTable = () => {
     const res = await getAllCompanies();
     setData(res.data);
   };
+  const navigate = useNavigate();
   const updateStateFromUi = async (dataTemp, id) => {
     let postData = {
       name: dataTemp.name,
@@ -34,7 +38,7 @@ const TempTable = () => {
         break;
       }
     }
-    console.log(temp)
+    console.log(temp);
     setData(temp);
   };
 
@@ -105,8 +109,41 @@ const TempTable = () => {
     <>
       <Info />
       <div style={{ height: 450, width: "100%" }} className="main-table">
+        <Button
+          sx={{
+            backgroundColor: grey[50],
+            "&:hover": {
+              backgroundColor: grey[100],
+            },
+            boxShadow: 2,
+            border: 2,
+            borderColor: "primary.light",
+            "& .MuiDataGrid-cell:hover": {
+              color: "primary.main",
+              borderRadius: 4,
+            },
+            // hover
+          
+          }}
+          onClick={() => {
+            navigate("/addCompany");
+          }}
+        >
+          Add New Company
+        </Button>
         <DataGrid
           rows={data}
+          sx={{
+            boxShadow: 2,
+            border: 2,
+            borderColor: "primary.light",
+            "& .MuiDataGrid-cell:hover": {
+              color: "primary.main",
+              borderRadius: 4,
+            },
+            // add glass morphism
+            backgroundColor: "grey.100",
+          }}
           components={{
             Toolbar: GridToolbar,
           }}

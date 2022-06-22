@@ -18,7 +18,7 @@ app.use(bodyParser.json());
 // using cors for cross origin
 app.use(cors({origin: true}));
 
-// import and use api routes
+// import and se api routes
 app.use('/api', require('./routes/api'));
 
 

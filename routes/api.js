@@ -4,8 +4,7 @@ const {
     create,
     update,
     getCompanies,
-    getCompanyById,
-    deleteCompany,
+    getCompanyById
 } = require('../controllers/api');
 
 router.route('/create').post(create);

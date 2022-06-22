@@ -1,3 +1,4 @@
+
 const Company = require("../models/Company");
 
 exports.getCompanies = async (req, res) => {
@@ -25,9 +26,10 @@ exports.update = async (req, res) => {
   // update company details
   const data = req.body;
   try {
-    const company = await Company.findOne({ email: data.email });
+    // find company by id
+    const company = await Company.findById(data._id);
     if (!company) {
-      res.status(400).json({ success: false, message: "Company not found" });
+      res.status(400).json({ success: false, message: "Company  not found new" });
       return;
     }
     company.name = data.name;
