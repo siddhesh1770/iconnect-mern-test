@@ -9,6 +9,7 @@ const Info = () => {
             <li>Click on Add Company button to add new Company</li>
             <li>Try various actions on table like filter, sort, pagination</li>
             <li>Use Filters option to search throughout the data</li>
+            <li>Check out source of project <a href='https://github.com/siddhesh1770/iconnect-mern-test'>here</a></li>
         </ul>
         <br></br>
     </div>
