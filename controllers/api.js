@@ -63,9 +63,9 @@ exports.create = async (req, res) => {
       state: req.body.state,
       city: req.body.city,
     };
-    let c = 1;
+    let c = 20;
     const temp1 = await Company.findOne({});
-   temp.count((err, count) => {
+   temp1.count((err, count) => {
       c = count;
    });
     console.log(c);
