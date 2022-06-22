@@ -8,6 +8,7 @@ const Info = () => {
             <li>Double click on any item to update it in DB</li>
             <li>Click on Add Company button to add new Company</li>
             <li>Try various actions on table like filter, sort, pagination</li>
+            <li>Use Filters option to search throughout the data</li>
         </ul>
         <br></br>
     </div>

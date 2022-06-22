@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { DataGrid} from '@mui/x-data-grid';
+import { DataGrid, GridSearchIcon, GridToolbar} from '@mui/x-data-grid';
 import {getAllCompanies, updateCompany} from '../service/api'
 import Info from './Info';
 
@@ -62,7 +62,7 @@ const TempTable = () => {
             headerName: 'Email',
             field: 'email',
             width: 200,
-            editable: true,
+            editable: false,
         },
         {
             headerName: 'Phone',
@@ -104,12 +104,16 @@ const TempTable = () => {
   return (
     <>
     <Info />
-    <div style={{height: 400, width: '100%'}} className="main-table">
+    <div style={{height: 450, width: '100%'}} className="main-table">
         <DataGrid 
             rows={data}
+            components={{
+                Toolbar: GridToolbar
+            }}
             columns={cols}
             pageSize={5}
             rowsPerPageOptions={[5]}
+            
             onCellEditCommit={(e) => {
                 //search for id in data
                 let hell;
