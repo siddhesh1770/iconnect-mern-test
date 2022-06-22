@@ -20,7 +20,8 @@ const TempTable = () => {
       email: dataTemp.email,
       state: dataTemp.state,
       city: dataTemp.city,
-      serial: dataTemp.mongoId,
+      id: dataTemp.id,
+      serial: dataTemp.serial,
       _id: id,
     };
     const res = await updateCompany(postData);
@@ -33,10 +34,7 @@ const TempTable = () => {
         break;
       }
     }
-    temp.forEach((element) => {
-      element.mongoId = element.id;
-      element.id = element.serial;
-    });
+    console.log(temp)
     setData(temp);
   };
 
