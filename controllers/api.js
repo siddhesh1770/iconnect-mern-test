@@ -1,4 +1,6 @@
 const Company = require("../models/Company");
+const CompanyEmail = require("../models/CompanyEmail");
+
 
 exports.getCompanies = async (req, res) => {
   try {
@@ -113,3 +115,14 @@ exports.getCompanyById = async (req, res) => {
     });
   }
 };
+
+exports.allCompaniesEmails = async (req, res) => {
+  try {
+    const companyEmail = await CompanyEmail.find()
+    res.status(200).json({
+      companyEmail
+    })
+  } catch (error) {
+    console.log(error)
+  }
+}
